@@ -1,0 +1,48 @@
+/* boostrap imports - minimal imports */
+@import '~bootstrap/scss/bootstrap.scss';
+
+/* app imports */
+@import "./variables.scss";
+@import "./mixins.scss";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $appFont;
+  font-size: $baseFontSize;
+  font-weight: 400;
+  overflow-x: hidden;
+  color: $black;
+  padding: 0;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+}
+h1 {
+  font-size: $h1Size;
+}
+h2 {
+  font-size: $h2Size;
+}
+h3 {
+  font-size: $h3Size;
+}
+h4 {
+  font-size: $h4Size;
+}
+
+.positionRelative {
+  position: relative;
+}
+
+.customRow:before, .customRow:after {
+  display: table;
+  content: "";
+}
+.customRow:after {
+  clear: both;
+}

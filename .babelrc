@@ -1,0 +1,19 @@
+{
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "extensions": [".scss", ".js", ".jsx"],
+        "alias": {
+          "@components": "./src/components",
+          "@pages": "./src/pages",
+          "@appIcons": "./src/assets/icons",
+          "@appImages": "./src/assets/images",
+          "@appSounds": "./src/assets/sounds",
+          "@appVideos": "./src/assets/videos",
+          "@appReduxStore": "./src/app-redux-store"
+        }
+      }
+    ]
+  ]
+}
