@@ -1,28 +1,27 @@
 /* node module imports */
-import React from "react";
+import React, {useEffect} from "react";
 
 /* app import */
 import "./style.scss";
+import {useButtonOnLoad} from "./hooks/use-on-load.js";
 
 export const CounterButton = (props) => {
-  /* override default config with incoming */
-  const attributes = {
-    ...props.config,
-    ...props.attributes,
-  };
+  /* top vars */
+  const attributes = {...props.byDefault, ...props.attributes};
+  const {btn} = useButtonOnLoad(props);
 
   /* create the component */
   return (
-    <button {...attributes}>
+    <button {...attributes} ref={btn}>
       <img {...props.icon}/>
     </button>
   );
 };
 CounterButton.defaultProps = {
-  config: {
+  byDefault: {
     className: "btn btn-default",
     id: null,
     type: "button",
-    onClick: () => {}
-  }
+  },
+  onClick: () => {}
 };

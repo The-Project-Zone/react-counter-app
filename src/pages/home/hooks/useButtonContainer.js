@@ -15,10 +15,10 @@ export const useButtonContainer = () => {
   /* create */
   const incrementButtonConfig = {
     attributes: {
-      className: "btn btn-dark increment",
-      onClick: () => {
-        dispatchToReduxStore(increaseValue());
-      },
+      className: "btn btn-dark increment counterBtn",
+    },
+    onClick: () => {
+      dispatchToReduxStore(increaseValue());
     },
     icon: {
       src: colorConfig.buttons === "white" ? plusIconWhite : plusIconBlack,
@@ -31,10 +31,10 @@ export const useButtonContainer = () => {
   /* create */
   const decrementButtonConfig = {
     attributes: {
-      className: "btn btn-dark decrement",
-      onClick: () => {
-        dispatchToReduxStore(decreaseValue());
-      },
+      className: "btn btn-dark decrement counterBtn",
+    },
+    onClick: () => {
+      dispatchToReduxStore(decreaseValue());
     },
     icon: {
       src: colorConfig.buttons === "white" ? minusIconWhite : minusIconBlack,
