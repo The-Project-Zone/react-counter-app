@@ -13,10 +13,13 @@ const counterSlice = createSlice({
     },
     decreaseValue: (state) => {
       state.value = state.value - 1;
+    },
+    performReset: (state) => {
+      state.value = 0;
     }
   }
 });
 
 /* export actions and the reducer */
-export const {increaseValue, decreaseValue} = counterSlice.actions;
+export const {increaseValue, decreaseValue, performReset} = counterSlice.actions;
 export default counterSlice.reducer;
