@@ -7,6 +7,7 @@ import "./style.scss";
 import {Counter} from "./components/counter.js";
 import {Controls} from "./components/controls.js";
 import {ButtonContainer} from "./components/button-container.js";
+import {CounterConfigModal} from "./components/config-modal.js";
 
 export const HomePage = () => {
   /* top vars */
@@ -15,7 +16,13 @@ export const HomePage = () => {
   return (
     <React.Fragment>
       <div className="mainContainer positionRelative" style={{background: background}}>
-        <Controls/>
+        <Controls>
+          {
+            (props) => {
+              return <CounterConfigModal {...props}/>
+            }
+          }
+        </Controls>
         <Counter/>
         <ButtonContainer/>
       </div>
