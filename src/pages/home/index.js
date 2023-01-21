@@ -8,6 +8,7 @@ import {Counter} from "./components/counter.js";
 import {Controls} from "./components/controls.js";
 import {ButtonContainer} from "./components/button-container.js";
 import {CounterConfigModal} from "./components/config-modal.js";
+import {CounterLimitor} from "./components/limitor.js";
 
 export const HomePage = () => {
   /* top vars */
@@ -19,7 +20,12 @@ export const HomePage = () => {
         <Controls>
           {
             (props) => {
-              return <CounterConfigModal {...props}/>
+              return (
+                <React.Fragment>
+                  <CounterConfigModal {...props}/>
+                  <CounterLimitor/>
+                </React.Fragment>
+              );
             }
           }
         </Controls>

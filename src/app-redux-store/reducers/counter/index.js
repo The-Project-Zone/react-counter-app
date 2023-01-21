@@ -6,6 +6,7 @@ const counterSlice = createSlice({
   name: "counter",
   initialState: {
     value: 0,
+    maxed: false
   },
   reducers: {
     increaseValue: (state) => {
@@ -16,10 +17,26 @@ const counterSlice = createSlice({
     },
     performReset: (state) => {
       state.value = 0;
+    },
+    setIsMaxed: (state) => {
+      state.maxed = true;
+    },
+    setIsNotMaxed: (state) => {
+      state.maxed = false;
+    },
+    setValue: {
+      reducer: (state, action) => {
+        state.value = action.payload.value;
+      },
+      prepare: (value) => {
+        return {
+          payload: {value}
+        }
+      }
     }
   }
 });
 
 /* export actions and the reducer */
-export const {increaseValue, decreaseValue, performReset} = counterSlice.actions;
+export const {increaseValue, decreaseValue, setValue, performReset} = counterSlice.actions;
 export default counterSlice.reducer;

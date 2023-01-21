@@ -21,7 +21,7 @@ export const Controls = (props) => {
           onClick={() => {
             configProps.toggleModalShow(() => true);
           }}
-          render={<img src={configIcon} className="img-fluid center-block"/>}
+          render={<img src={configIcon} style={{width:"15px"}} className="img-fluid center-block"/>}
         />
         <AppButton
           attributes={{

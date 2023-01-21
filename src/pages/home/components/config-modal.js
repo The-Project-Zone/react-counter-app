@@ -47,8 +47,8 @@ export const CounterConfigModal = (props) => {
       />
       <div className="customRow top">
         <div className="segment mb-3">
-          <ModalSetCounterComponent/>
-          <ModalSetLimitComponent/>
+          <ModalSetCounterComponent hideModal={() => {props.toggleModalShow(() => false)}}/>
+          <ModalSetLimitComponent hideModal={() => {props.toggleModalShow(() => false)}}/>
         </div>
         <div className="segment">
           <ModalSetColorComponent/>
