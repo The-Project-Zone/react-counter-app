@@ -35,9 +35,6 @@ export const CounterConfigModal = (props) => {
     }
   }, [props.show]);
 
-  if (modalClass.indexOf("d-none") > -1) {
-    return null;
-  }
   return (
     <div className={modalClass}>
       <AppButton
@@ -46,7 +43,7 @@ export const CounterConfigModal = (props) => {
         render={<img src={xMarkIconWhite} className="img-fluid center-block" alt="Close" title="Close"/>}
       />
       <div className="customRow top">
-        <div className="segment mb-3">
+        <div className="segment mb-4">
           <ModalSetCounterComponent hideModal={() => {props.toggleModalShow(() => false)}}/>
           <ModalSetLimitComponent hideModal={() => {props.toggleModalShow(() => false)}}/>
         </div>

@@ -18,7 +18,6 @@ const limitorSlice = createSlice({
     setLimit: {
       reducer: (state, action) => {
         state.value = action.payload.value;
-        state.active = true;
       },
       prepare: (value) => {
         return {payload: {value}};

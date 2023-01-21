@@ -4,32 +4,39 @@ import {useSelector} from "react-redux";
 
 export const CounterLimitor = () => {
   const limit = useSelector((state) => state.limit);
-  const maxed = useSelector((state) => state.counter.maxed);
+  const [maxed, setMaxed] = useState(false);
+  const currentValue = useSelector((state) => state.counter.value);
   const [classString, setClassString] = useState("limitor");
 
   /* on limit update */
   useEffect(() => {
-    setClassString(() => {
-      return (!limit.active) ? "limitor" : "limitor active";
-    });
-  }, [limit]);
+    let mode = "limitor";
 
-  /* on max update */
-  useEffect(() => {
-    setClassString((prevState) => {
-      if (!limit.active || !maxed) {
-        return prevState;
+    if (limit.active) {
+      mode = "limitor active";
+      if (currentValue >= limit.value) {
+        mode = "limitor active maxed";
+        setMaxed(() => true);
       }
       else {
-        return "limitor active maxed";
+        setMaxed(() => false);
       }
-    });
-  }, [maxed]);
+    }
+    else {
+      setMaxed(() => false);
+    }
+
+    setClassString(() => mode);
+  }, [limit, currentValue]);
 
   return (
     <div className={classString}>
       <span className="value">{limit.value}</span>
-      <span className="text">Limit: {!limit.active ? "Not Active" : "Active"}</span>
+      {
+        (!maxed) ?
+        (<span className="text">Limit: {!limit.active ? "Not Active" : "Active"}</span>) :
+        (<span className="text">Limit: Reached/Crossed</span>)
+      }
     </div>
   );
 };

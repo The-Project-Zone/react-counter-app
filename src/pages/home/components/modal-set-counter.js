@@ -27,7 +27,7 @@ export const ModalSetCounterComponent = (props) => {
   }
 
   return (
-    <div className="formGroup positionRelative mb-3">
+    <div className="formGroup positionRelative mb-4">
       <label className="form-label" htmlFor="counterValue">Set Counter</label>
       <input type="text" id="counterValue" name="counterValue" className="form-control counterInput"
       value={value}
