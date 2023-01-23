@@ -48,7 +48,7 @@ export const CounterConfigModal = (props) => {
           <ModalSetLimitComponent hideModal={() => {props.toggleModalShow(() => false)}}/>
         </div>
         <div className="segment">
-          <ModalSetColorComponent/>
+          <ModalSetColorComponent hideModal={() => {props.toggleModalShow(() => false)}}/>
         </div>
       </div>
     </div>
