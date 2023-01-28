@@ -16,4 +16,4 @@ The React Counter App was built to understand how redux gets integrated into var
 - React Hooks
 - Bootstrap / Sass
 
-![App Preview](https://raw.githubusercontent.com/sricharankrishnan/react-counter-app/master/public/app-preview.gif?token=GHSAT0AAAAAAB6BEBJGC2AP4FJBJR7BNMIOY6VDMSA)
+![App Preview](https://react-counter-color-picker-app.netlify.app/app-preview.gif)
