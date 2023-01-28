@@ -1,5 +1,5 @@
 /* node module imports */
-import React, {useRef, useEffect} from "react";
+import React, {useRef, useEffect, useState} from "react";
 import {useDispatch} from "react-redux";
 
 /* app imports */
@@ -12,7 +12,7 @@ export const ColorComponent = (props) => {
 
   function handleOnClick() {
     dispatchToReduxStore(selectColorByHex(props.background));
-    props.triggerHideModal();
+    //props.triggerHideModal();
   }
 
   useEffect(() => {
@@ -24,7 +24,7 @@ export const ColorComponent = (props) => {
   }, []);
 
   return (
-    <div ref={colorRef} className="color" style={{background: props.background}}>
+    <div ref={colorRef} className={props.selected ? "color active" : "color"} style={{background: props.background}}>
       {
         (props.selected) &&
         <img src={tickMarkSource} className="img-fluid tick" alt="Selected" title="Selected"/>

@@ -2,10 +2,14 @@
 import React, {useState, useEffect} from "react";
 import {useSelector} from "react-redux";
 
+/* app imports */
+import {deriveSelectedColor} from "@components/common/scripts/get-selected-color.js";
+
 export const CounterLimitor = () => {
   const limit = useSelector((state) => state.limit);
-  const [maxed, setMaxed] = useState(false);
+  const colorConfig = useSelector((state) => deriveSelectedColor(state));
   const currentValue = useSelector((state) => state.counter.value);
+  const [maxed, setMaxed] = useState(false);
   const [classString, setClassString] = useState("limitor");
 
   /* on limit update */
@@ -26,8 +30,9 @@ export const CounterLimitor = () => {
       setMaxed(() => false);
     }
 
+    mode += " " + colorConfig.buttons;
     setClassString(() => mode);
-  }, [limit, currentValue]);
+  }, [limit, currentValue, colorConfig.buttons]);
 
   return (
     <div className={classString}>

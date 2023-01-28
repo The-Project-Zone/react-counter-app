@@ -5,8 +5,6 @@ import { createSlice } from "@reduxjs/toolkit";
 const colorSlice = createSlice({
   name: "colors",
   initialState: {
-    text: "#ffffff",
-    buttons: "white",
     byDefault: {
       background: "#262626",
       text: "#ffffff",

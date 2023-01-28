@@ -81,6 +81,12 @@
       right: 15px;
       width: 40px;
       height: 40px;
+      border: 0;
+      outline: 0;
+    }
+    .closeBtn:active {
+      border: 0;
+      outline: 0;
     }
     .customRow.top {
       .segment {
@@ -94,7 +100,7 @@
             background: transparent;
             line-height: 35px;
             color: $white;
-            border-radius: 0;
+            border-radius: 10px;
           }
           .form-control:disabled {
             color: #aaa;
@@ -135,8 +141,9 @@
             box-shadow: none;
             border-color: #ced4da;
           }
-          .counterInput {
-            padding-right: 80px;
+          .form-control:disabled {
+            background: rgba(0, 0, 0, 0.1);
+            opacity: 0.5;
           }
           .counterSetButton {
             font-size: 0.9rem;
@@ -158,19 +165,24 @@
               width: 20%;
               max-width: 60px;
               float: left;
-              border: 1px solid $white;
               border-radius: 10px;
               margin: 0 2% 4%;
               cursor: pointer;
             }
-            .color {
+            .color.active {
               position: relative;
+              border: 1px solid $white;
               .tick {
                 position: absolute;
-                top: -6px;
-                right: -6px;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                -webkit-transform: translate(-50%, -50%);
                 width: 20px;
                 height: 20px;
+                background: $white;
+                border-radius: 50%;
+                padding: 2px;
               }
             }
             .color:before {
@@ -202,12 +214,13 @@
               height: 17px;
               display: block;
               border-radius: 50%;
-              background: $white;
+              background: #bbb;
               @include app-transition(all, 0.15s, linear);
             }
             input[type=checkbox]:checked ~ .circle {
               transform: translateX(33px);
               -webkit-transform: translateX(33px);
+              background: $white;
             }
           }
         }
@@ -222,7 +235,6 @@
     z-index: -10;
   }
   .limitor {
-    color: $white;
     position: absolute;
     bottom: 120px;
     left: 50%;
@@ -236,13 +248,24 @@
     }
     .text {
       font-size: 0.8rem;
-      color: #888;
     }
     .value {
       opacity: 0;
       visibility: hidden;
       transform: translateY(10px);
       -webkit-transform: translateY(10px);
+    }
+  }
+  .limitor.white {
+    color: $white;
+    .text {
+      color: #888;
+    }
+  }
+  .limitor.black {
+    color: $black;
+    .text {
+      color: #444;
     }
   }
   .limitor.active {
@@ -254,6 +277,16 @@
       visibility: visible;
       transform: translateY(0);
       -webkit-transform: translateY(0);
+    }
+  }
+  .limitor.white.active {
+    .text {
+      color: $white;
+    }
+  }
+  .limitor.black.active {
+    .text {
+      color: $black;
     }
   }
   .limitor.maxed {
