@@ -16,4 +16,7 @@ The React Counter App was built to understand how redux gets integrated into var
 - React Hooks
 - Bootstrap / Sass
 
+### Support This Project
+If you like the work that has gone into this demo project, you can show your support with a Github Star! I'd really appreciate that.
+
 ![App Preview](https://react-counter-color-picker-app.netlify.app/app-preview.gif)
