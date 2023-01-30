@@ -1,5 +1,5 @@
 /* node module imports */
-import React from 'react';
+import React, {StrictMode} from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from "react-redux";
 
@@ -9,7 +9,9 @@ import { appRTKStore } from "./app-redux-store/store.js";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <Provider store={appRTKStore()}>
-    <App />
-  </Provider>
+  <StrictMode>
+    <Provider store={appRTKStore()}>
+      <App />
+    </Provider>
+  </StrictMode>
 );
